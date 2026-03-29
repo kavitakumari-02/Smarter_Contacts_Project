@@ -1,0 +1,64 @@
+body{
+    background:#e2e2e2!important;
+    font-family: Arial, sans-serif;
+}
+.bg-primary{
+	background:#009688 !important;	
+}
+.banner{
+	width:50%;
+	   height:93vh;
+	   background:linear linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../img/banner.jpg);
+	   background-size:cover;
+	   color: white;	
+}
+/* Card */
+.register-card{
+    background:#ffffff;   /* change gray → white */
+    padding:30px;
+    margin-top:60px;
+    border-radius:10px;
+    box-shadow:0 4px 25px rgba(0,0,0,0.2);
+}
+
+/* Title */
+.register-title{
+    text-align:center;
+    font-size:25px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+/* Icon */
+.register-icon{
+    width:80px;
+    height:80px;
+    display:block;
+    margin:auto;
+    margin-bottom:15px;
+}
+.contailer{
+	margin-top:60%
+}
+
+/* Labels */
+label{
+    font-weight:500;
+    margin-bottom:10px;
+}
+
+/* Input spacing */
+.form-control{
+    margin-bottom:25px;
+}
+
+/* Textarea */
+textarea{
+    height:120px;
+}
+
+/* Register Button */
+.btn{
+    font-weight:500;
+    padding:20px;
+}

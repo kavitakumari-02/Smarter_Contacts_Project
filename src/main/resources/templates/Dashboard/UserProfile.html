@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="Dashboard/base :: layout(~{::section})">
+	 
+<section>
+
+<div style="margin-left:250px; background:#f5f5f5; min-height:100vh; padding:30px;">
+
+    <div class="container">
+
+        <div class="card shadow p-4 text-center" 
+             style="max-width:600px; margin:auto; border-radius:15px;">
+
+            <!-- Profile Image -->
+            <div class="mb-3">
+                <img th:src="@{/images/default.png}" 
+                     alt="profile"
+                     style="width:120px; height:120px; border-radius:50%; object-fit:cover;">
+            </div>
+
+            <!-- User Name -->
+            <h3 th:text="${user.name}">User Name</h3>
+
+            <!-- Email -->
+            <p class="text-muted" th:text="${user.email}">user@email.com</p>
+
+            <hr>
+
+            <!-- About -->
+            <div class="mb-3">
+                <h5>About</h5>
+                <p th:text="${user.about}">
+                    This is user description...
+                </p>
+            </div>
+			
+			<div class="mb-3">
+			               <h5>Role</h5>
+			               <p th:text="${user.role}">
+			                   This is user Role...
+			               </p>
+			           </div>
+					   
+					   <div class="mb-3">
+					                  <h5>Is_Enable</h5>
+					                  <p th:text="${user.is_Enable}">
+					                      This is user Is_Enambe...
+					                  </p>
+					              </div>
+
+            <!-- Actions -->
+            <div class="mt-3">
+              
+                <a href="/login?logout" class="btn btn-danger">Logout</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</html>

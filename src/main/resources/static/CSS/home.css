@@ -1,0 +1,48 @@
+body {
+          background: #f5f7fa;
+      }
+
+      .hero {
+          height: 60vh;
+          background: linear-gradient(to right, #667eea, #764ba2);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          flex-direction: column;
+      }
+
+      .hero h1 {
+          font-size: 60px;
+          font-weight: bold;
+      }
+
+      .hero p {
+          font-size: 18px;
+          margin-bottom: 16px;
+      }
+
+      .btn-custom {
+          padding: 10px 25px;
+          border-radius: 30px;
+      }
+
+      .features {
+          margin-top: -80px;
+      }
+
+      .card {
+          border: none;
+          border-radius: 10px;
+          transition: 0.3s;
+      }
+
+      .card:hover {
+          transform: translateY(-10px);
+      }
+
+      .icon {
+          font-size: 35px;
+          color: #764ba2;
+      }

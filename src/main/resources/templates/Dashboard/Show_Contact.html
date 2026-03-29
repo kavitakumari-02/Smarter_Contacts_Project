@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+th:replace="Dashboard/base :: layout(~{::section})">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:text="${title}"></title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+	<section>
+		<div style="background-color:#f5f5f5; min-height:60vh; padding:30px;">
+
+		<div class="container" style="margin-right:180px;">
+
+		<div class="card shadow p-4" style="background-color:white; border-radius:10px;">
+			
+
+
+		<h3 class="text-center mb-4">Your Contacts</h3>
+		
+
+		<table class="table table-striped">
+
+		<thead class="table-dark">
+			
+		<tr>
+		<th>ID</th>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Profession</th>
+		<th>Action</th>
+		</tr>
+		</thead>
+
+		<tbody>
+
+		<tr th:each="c : ${contact}">
+			
+		<td th:text="${'SCM2026'+c.id}"></td>
+		<td>
+		<img class="my_picture" th:src="@{'/images/'+${c.image}}" alt="profileImage">
+		<span th:text="${c.firstName}"></span>
+		
+		</td>
+		<td th:text="${c.lastName}"></td>
+		
+		<td>
+			<a th:href="@{'/user/contact/'+${c.id}}">
+			<span th:text="${c.email}"></span>
+			</a>
+		</td>
+		<td th:text="${c.phone}"></td>
+		<td th:text="${c.profession}"></td>
+
+		<td>
+			<form th:action="@{'/user/update-contact/' + ${c.id}}" method="post">
+		  
+		      <button type="submit" class="btn btn-primary btn-sm">Update</button>
+			   </form>
+			   <br>
+			   <a href="#"
+			      th:attr="onclick=|confirmDelete('/user/delete-contact/${c.id}')|"
+			      class="btn btn-danger btn-sm">
+			      Delete
+			   </a>
+
+		</td>
+
+		</tr>
+
+		</tbody>
+
+		</table>
+		<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+
+		<li class="page-item" th:if="${currentPage > 0}">
+		<a class="page-link"
+		   th:href="@{'/user/show_contact/' + ${currentPage-1}}">
+		Previous
+		</a>
+		</li>
+
+		<li class="page-item"
+		    th:each="i : ${#numbers.sequence(0,totalPage-1)}"
+		    th:classappend="${currentPage == i} ? ' active' : ''">
+
+		<a class="page-link"
+		   th:href="@{'/user/show_contact/' + ${i}}"
+		   th:text="${i+1}">
+		</a>
+
+		</li>
+
+		<li class="page-item" th:if="${currentPage < totalPage-1}">
+		<a class="page-link"
+		   th:href="@{'/user/show_contact/' + ${currentPage+1}}">
+		Next
+		</a>
+		</li>
+
+		</ul>
+		</nav>
+
+
+		</div>
+
+		</div>
+
+		</div>
+
+	</section>
+	
+
+	
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+/* Body */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar background */
+.navbar{
+    background-color: blue !important;
+}
+
+/* Navbar brand (logo/text) */
+.navbar .navbar-brand{
+    color: white !important;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Navbar links */
+.navbar .nav-link{
+    color: white !important;
+    font-size: 16px;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover{
+    color: #ddd !important;
+}
+
+/* Disabled link */
+.navbar .nav-link.disabled{
+    color: #ccc !important;
+}
+.my_picture{
+	width:35px;
+	height:35%;	
+}
