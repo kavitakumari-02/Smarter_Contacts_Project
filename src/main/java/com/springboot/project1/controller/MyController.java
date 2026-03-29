@@ -71,7 +71,7 @@ public class MyController {
 
             model.addAttribute("user", user);
 
-            redirectAttributes.addFlashAttribute("printingMessage",new PrintingMessage("Data entry failed:" + e.getMessage(), "warning"));
+            redirectAttributes.addFlashAttribute("printingMessage",new PrintingMessage("Data entery failed:" + e.getMessage(), "warning"));
             return "redirect:/register";
          }
    
