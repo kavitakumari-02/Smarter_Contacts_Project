@@ -22,6 +22,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.springboot.project1.SmartcontactApplication;
 import com.springboot.project1.dao.ContactRepository;
 import com.springboot.project1.dao.UserRepository;
@@ -86,7 +88,7 @@ public class UserController {
     		@Valid
             @ModelAttribute Contact contact,BindingResult result,
             @RequestParam("profileImage")MultipartFile file,
-            Principal principal,HttpSession session,Model model) {
+            Principal principal,RedirectAttributes redirectAttributes,Model model) {
 
     	if(result.hasErrors()) {
     		model.addAttribute("contact", contact);
@@ -102,32 +104,26 @@ public class UserController {
          contact.setImage("default.png");
         	}
         	else {
-        		
-				String originalFilename = file.getOriginalFilename();
+        		String originalFilename = file.getOriginalFilename();
 				contact.setImage(originalFilename);
 				 File savedFile = new ClassPathResource("/static/images").getFile();
 				
 				Path path= Paths.get(savedFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
       Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
         	}
-        	
-            contact.setUser(user);
-
+        	 contact.setUser(user);
             user.getContacts().add(contact);
-
             userRepository.save(user);
-        
-           session.setAttribute("printingMsg", new PrintingMessage("Data Enter SuccessFully", "success"));
+         redirectAttributes.addFlashAttribute("printingMsg", new PrintingMessage("Data Enter SuccessFully", "success"));
            model.addAttribute("contact", new Contact());
-        	
-            System.out.println("Contact Saved: " + contact);
+        	System.out.println("Contact Saved: " + contact);
 
         } catch (Exception e) {
             e.printStackTrace();
-            session.setAttribute("printingMsg", new PrintingMessage("Data Entery Failed", "danger"));
+            redirectAttributes.addFlashAttribute("printingMsg", new PrintingMessage("Data Entery Failed", "danger"));
         }
 
-        return "Dashboard/Add_Contact";
+        return "redirect:/user/add_contact";
 }
     @GetMapping("/show_contact/{page}")
 public String show_contact(@PathVariable("page")int page, Model model,Principal principal) {

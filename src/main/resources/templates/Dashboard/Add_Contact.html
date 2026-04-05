@@ -20,12 +20,12 @@
 
                 <h2 class="text-center mb-4">Add Contact</h2>
 
-<div th:if="${session.printingMsg}" 
-     th:class="'alert alert-' + ${session.printingMsg.type}"
+<div th:if="${printingMsg}" 
+     th:class="'alert alert-' + ${printingMsg.type}"
      role="alert">
 
 <h5 class="text-center" 
-    th:text="${session.printingMsg.msgContent}">
+    th:text="${printingMsg.msgContent}">
 </h5>
 
 </div>
