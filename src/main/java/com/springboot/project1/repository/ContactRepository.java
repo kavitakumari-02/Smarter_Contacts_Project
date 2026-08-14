@@ -1,4 +1,4 @@
-package com.springboot.project1.dao;
+package com.springboot.project1.repository;
 
 import java.util.List;
 

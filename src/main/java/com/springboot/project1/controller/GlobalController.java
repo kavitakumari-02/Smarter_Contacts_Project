@@ -1,4 +1,4 @@
-package com.springboot.project1.user;
+package com.springboot.project1.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

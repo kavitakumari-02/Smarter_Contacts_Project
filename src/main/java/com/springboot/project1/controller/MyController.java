@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.springboot.project1.dao.UserRepository;
 //import com.springboot.project1.dao.UserRepository;
 import com.springboot.project1.message.PrintingMessage;
 import com.springboot.project1.model.User;
+import com.springboot.project1.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;

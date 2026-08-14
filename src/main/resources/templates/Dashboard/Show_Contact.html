@@ -15,11 +15,21 @@ th:replace="Dashboard/base :: layout(~{::section})">
 
 <body>
 	<section>
-		<div style="background-color:#f5f5f5; min-height:60vh; padding:30px;">
+		<div style="
+			    background-color:white;
+			    min-height:150vh;
+			    padding: 20px 50px 50px;
+			">
 
 		<div class="container mt-3 px-4">
 
-		<div class="card shadow p-3 w-100" style="background-color:white; border-radius:10px;">
+			<div class="card shadow p-4"
+			                 style="
+			                    background-color:#f5f5f5;
+			                    border-radius:10px;
+			                    max-width:1200px;
+			                    margin:auto;
+			                 ">
 			
 
 
@@ -62,16 +72,30 @@ th:replace="Dashboard/base :: layout(~{::section})">
 		<td th:text="${c.profession}"></td>
 
 		<td>
-			<form th:action="@{'/user/update-contact/' + ${c.id}}" method="post">
-		  
-		      <button type="submit" class="btn btn-primary btn-sm">Update</button>
-			   </form>
-			   <br>
-			   <a href="#"
-			      th:attr="onclick=|confirmDelete('/user/delete-contact/${c.id}')|"
-			      class="btn btn-danger btn-sm">
-			      Delete
-			   </a>
+
+		    <!-- Update -->
+		    <form th:action="@{'/user/update-contact/' + ${c.id}}"
+		          method="post"
+		          style="display:inline;">
+
+		        <button type="submit"
+		                class="btn btn-primary btn-sm">
+
+		            <i class="fa-solid fa-pen-to-square"></i>
+
+		        </button>
+
+		    </form>
+
+
+		    <!-- Delete -->
+		    <a href="#"
+		       th:attr="onclick=|confirmDelete('/user/delete-contact/${c.id}')|"
+		       class="btn btn-danger btn-sm">
+
+		        <i class="fa-solid fa-trash"></i>
+
+		    </a>
 
 		</td>
 

@@ -1,4 +1,4 @@
-package com.springboot.project1.user;
+package com.springboot.project1.controller;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -25,11 +25,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.project1.SmartcontactApplication;
-import com.springboot.project1.dao.ContactRepository;
-import com.springboot.project1.dao.UserRepository;
 import com.springboot.project1.message.PrintingMessage;
 import com.springboot.project1.model.Contact;
 import com.springboot.project1.model.User;
+import com.springboot.project1.repository.ContactRepository;
+import com.springboot.project1.repository.UserRepository;
 import com.springboot.project1.secruity.UserDetailsServiceImp;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -70,7 +70,7 @@ public class UserController {
 
         model.addAttribute("name", user);
 
-        return "Dashboard/index";
+        return "Dashboard/dashboard";
     }
 
 

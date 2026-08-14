@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
-import com.springboot.project1.dao.UserRepository;
 import com.springboot.project1.model.User;
+import com.springboot.project1.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
